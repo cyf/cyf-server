@@ -1,0 +1,29 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "rangeStrategy": "bump",
+  "prHourlyLimit": 0,
+  "ignoreDeps": ["node"],
+  "packageRules": [
+    {
+      "allowedVersions": "18",
+      "matchPackageNames": ["@types/node"]
+    },
+    {
+      "allowedVersions": "3",
+      "matchPackageNames": ["mime", "@types/mime"]
+    },
+    {
+      "allowedVersions": "9",
+      "matchPackageNames": ["uuid", "@types/uuid"]
+    },
+    {
+      "allowedVersions": "7",
+      "matchPackageNames": ["query-string"]
+    },
+    {
+      "matchPackagePatterns": ["nestjs"],
+      "groupName": "nestjs"
+    }
+  ]
+}
