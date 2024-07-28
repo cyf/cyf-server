@@ -13,3 +13,4 @@ dist
 test.mjs
 templates/*.html
 public/**/*.css
+/*.log
