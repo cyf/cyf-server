@@ -1,5 +1,4 @@
 import { NestFactory } from '@nestjs/core'
-import { IoAdapter } from '@nestjs/platform-socket.io'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import { NestExpressApplication } from '@nestjs/platform-express'
 import bodyParser from 'body-parser'
@@ -8,6 +7,7 @@ import cookieParser from 'cookie-parser'
 import compression from 'compression'
 import helmet from 'helmet'
 import { useContainer } from 'class-validator'
+import { CustomSocketIoAdapter } from './common/adapters/socket-io.adapter'
 import { AppModule } from './app.module'
 
 const RENDER_GIT_BRANCH = process.env.RENDER_GIT_BRANCH
@@ -41,7 +41,7 @@ async function bootstrap() {
   })
   // app.useStaticAssets(join(__dirname, '..', 'public'))
   // app.setGlobalPrefix('/api')
-  app.useWebSocketAdapter(new IoAdapter(app))
+  app.useWebSocketAdapter(new CustomSocketIoAdapter(app))
 
   const config = new DocumentBuilder()
     .setTitle('CYF')

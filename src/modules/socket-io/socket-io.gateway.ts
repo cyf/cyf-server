@@ -7,6 +7,7 @@ import {
   WebSocketServer,
   OnGatewayInit,
   WsResponse,
+  ConnectedSocket,
 } from '@nestjs/websockets'
 import { Server, Socket } from 'socket.io'
 import { I18nContext, I18nService } from 'nestjs-i18n'
@@ -21,6 +22,7 @@ import { WebsocketExceptionFilter } from '@/common/filters/ws-exception.filter'
 import { SocketIoAuthGuard } from '@/common/guards/socket-io.guard'
 import { SocketIoThrottlerGuard } from '@/common/guards/socket-io.throttler.guard'
 import { EmailVerifiedEvent } from '@/modules/user'
+import type { SocketWithI18nContext } from '@/types/i18n'
 
 // const basePath = process.env.NODE_ENV === 'production' ? 'portal/' : ''
 
@@ -55,9 +57,12 @@ export class SocketIoGateway implements OnGatewayInit<Server> {
 
   @Public()
   @SubscribeMessage('hello')
-  hello(@MessageBody() data: any): string {
-    logger.debug('this.i18n', this.i18n.t, I18nContext.current())
-    return this.i18n.t('common.HELLO', { lang: I18nContext.current().lang })
+  hello(
+    @ConnectedSocket() client: SocketWithI18nContext,
+    @MessageBody() data: any,
+  ): string {
+    logger.debug('data', data)
+    return this.i18n.t('common.HELLO', { lang: client.i18nContext.lang })
   }
 
   @Public()
