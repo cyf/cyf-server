@@ -6,7 +6,6 @@ import { UserModule } from '@/modules/user'
 import { AuthModule } from '@/modules/auth'
 import { PassportModule } from '@nestjs/passport'
 import { JwtModule } from '@nestjs/jwt'
-import { jwtConstants } from '@/common/constants'
 import { PrismaModule } from '@/modules/prisma'
 
 describe('SocketIoGateway', () => {
@@ -21,7 +20,7 @@ describe('SocketIoGateway', () => {
         AuthModule,
         PassportModule,
         JwtModule.register({
-          secret: jwtConstants.secret,
+          secret: process.env.JWT_SECRET,
           signOptions: { expiresIn: 24 * 60 * 60 },
         }),
       ],

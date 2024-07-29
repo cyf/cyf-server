@@ -1,7 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { JwtModule, JwtService } from '@nestjs/jwt'
 import { AuthService } from './auth.service'
-import { jwtConstants } from '@/common/constants'
 import { UserModule } from '@/modules/user'
 import { CacheModule, CacheStore } from '@nestjs/cache-manager'
 import { redisStore } from 'cache-manager-redis-store'
@@ -72,7 +71,7 @@ describe('AuthService', () => {
         }),
         UserModule,
         JwtModule.register({
-          secret: jwtConstants.secret,
+          secret: process.env.JWT_SECRET,
           signOptions: { expiresIn: 24 * 60 * 60 },
           verifyOptions: {
             ignoreExpiration: false,

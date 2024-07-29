@@ -6,7 +6,6 @@ import { AuthController } from './auth.controller'
 import { AuthService } from './auth.service'
 import { AppModule } from '../../app.module'
 import { UserModule } from '@/modules/user'
-import { jwtConstants } from '@/common/constants'
 import { JwtStrategy } from '@/common/strategies/jwt.strategy'
 
 describe('AuthController', () => {
@@ -20,7 +19,7 @@ describe('AuthController', () => {
         PassportModule,
         NestjsFormDataModule,
         JwtModule.register({
-          secret: jwtConstants.secret,
+          secret: process.env.JWT_SECRET,
           signOptions: { expiresIn: 24 * 60 * 60 },
           verifyOptions: {
             ignoreExpiration: false,

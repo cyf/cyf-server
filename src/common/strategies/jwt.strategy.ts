@@ -4,7 +4,6 @@ import { Strategy, ExtractJwt } from 'passport-jwt'
 import { Request } from 'express'
 import { isString } from 'class-validator'
 import { JwtPayload } from '../interfaces/jwt-payload.interface'
-import { jwtConstants } from '@/common/constants'
 import { AuthService } from '@/modules/auth'
 import { User } from '@/modules/user'
 
@@ -25,7 +24,7 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
   ) {
     super({
       jwtFromRequest: ExtractJwt.fromExtractors([extractTokenFromHeader()]),
-      secretOrKey: jwtConstants.secret,
+      secretOrKey: process.env.JWT_SECRET,
       ignoreExpiration: false,
       passReqToCallback: false,
     })

@@ -10,7 +10,6 @@ import {
 import { WsException } from '@nestjs/websockets'
 import { JwtService } from '@nestjs/jwt'
 import { Socket } from 'socket.io'
-import { jwtConstants } from '@/common/constants'
 import { IS_PUBLIC_KEY } from '@/common/decorators/public.decorator'
 import { JwtPayload } from '@/common/interfaces/jwt-payload.interface'
 import { AuthService } from '@/modules/auth'
@@ -46,7 +45,7 @@ export class SocketIoAuthGuard implements CanActivate {
       // 💡 We're assigning the payload to the request object here
       // so that we can access it in our route handlers
       const user = await this.jwtService.verifyAsync(token, {
-        secret: jwtConstants.secret,
+        secret: process.env.JWT_SECRET,
       })
       request['user'] = await this.authService.verifyPayload(user as JwtPayload)
     } catch {

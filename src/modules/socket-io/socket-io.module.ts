@@ -6,7 +6,6 @@ import { SocketIoGateway } from './socket-io.gateway'
 import { PrismaModule } from '@/modules/prisma'
 import { UserModule } from '@/modules/user'
 import { AuthModule } from '@/modules/auth'
-import { jwtConstants } from '@/common/constants'
 import { EventEmitterModule } from '@nestjs/event-emitter'
 
 @Module({
@@ -18,7 +17,7 @@ import { EventEmitterModule } from '@nestjs/event-emitter'
     EventEmitterModule,
     JwtModule.register({
       global: true,
-      secret: jwtConstants.secret,
+      secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: 24 * 60 * 60 },
     }),
   ],
