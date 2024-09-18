@@ -117,7 +117,7 @@
     "@types/lodash": "^4.17.7",
     "@types/mime": "^3.0.4",
     "@types/node": "^18.19.50",
-    "@types/nodemailer": "^6.4.15",
+    "@types/nodemailer": "^6.4.16",
     "@types/passport-jwt": "^4.0.1",
     "@types/supertest": "^6.0.2",
     "@types/webpack-env": "^1.18.5",
