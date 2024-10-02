@@ -60,7 +60,7 @@
     "@nestjs/serve-static": "^4.0.2",
     "@nestjs/swagger": "^7.4.2",
     "@nestjs/terminus": "^10.2.3",
-    "@nestjs/throttler": "^5.2.0",
+    "@nestjs/throttler": "^6.2.1",
     "@nestjs/websockets": "^10.4.4",
     "@prisma/client": "^5.20.0",
     "axios": "^1.7.7",
