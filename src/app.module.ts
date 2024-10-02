@@ -12,7 +12,7 @@ import { CacheModule, CacheStore } from '@nestjs/cache-manager'
 import { EventEmitterModule } from '@nestjs/event-emitter'
 import { ThrottlerGuard, ThrottlerModule, seconds } from '@nestjs/throttler'
 import { redisStore } from 'cache-manager-redis-store'
-import { ThrottlerStorageRedisService } from 'nestjs-throttler-storage-redis'
+import { ThrottlerStorageRedisService } from '@nest-lab/throttler-storage-redis'
 import { NestjsFormDataModule } from 'nestjs-form-data'
 import {
   I18nModule,
