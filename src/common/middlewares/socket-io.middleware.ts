@@ -16,6 +16,7 @@ export const socketIoMiddleware =
     const i18nContext: I18nContext = new I18nContext<Record<string, unknown>>(
       locale as string,
       i18nService,
+      socket.i18nContext.i18nOptions,
     )
     socket.i18nContext = i18nContext
     next()
