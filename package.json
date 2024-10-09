@@ -73,7 +73,7 @@
     "class-validator": "^0.14.1",
     "compare-versions": "^6.1.1",
     "compression": "^1.7.4",
-    "cookie-parser": "^1.4.6",
+    "cookie-parser": "^1.4.7",
     "crypto-js": "^4.2.0",
     "dayjs": "^1.11.13",
     "express-session": "^1.18.0",
