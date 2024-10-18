@@ -116,7 +116,7 @@
     "@types/js-yaml": "^4.0.9",
     "@types/lodash": "^4.17.10",
     "@types/mime": "^3.0.4",
-    "@types/node": "^18.19.54",
+    "@types/node": "^18.19.56",
     "@types/nodemailer": "^6.4.16",
     "@types/passport-jwt": "^4.0.1",
     "@types/supertest": "^6.0.2",
